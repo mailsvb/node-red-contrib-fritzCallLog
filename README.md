@@ -20,6 +20,6 @@ cd node-red-contrib-fritzCallLog && npm -g install .
 * Activate login via username and password on your Fritzbox
 * use an existing account or create a new account with access to call log data
 <p align="left">
-  <img src="doc/FritzBoxAnmeldung.png" width="200"/>
-  <img src="doc/FritzBoxUser.png" width="200"/>
+  <img src="doc/FritzBoxAnmeldung.png" width="300"/>
+  <img src="doc/FritzBoxUser.png" width="300"/>
 </p>
