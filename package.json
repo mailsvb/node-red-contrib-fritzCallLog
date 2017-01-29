@@ -1,0 +1,23 @@
+{
+    "author": {
+        "name": "Sven",
+        "email": "mailsvb@gmail.com"
+    },
+    "description": "fritzbox call log to XSI",
+    "name": "node-red-contrib-fritzCallLog",
+    "keywords": [ "node-red", "Fritz!", "FritzBox", "XSI", "DeskPhone CP", "XSI" ],
+    "node-red": {
+        "nodes": {
+            "FritzCallLog": "fritz.js"
+        }
+    },
+    "license": "MIT",
+    "dependencies": {
+        "crypto": "^0.0.3",
+        "csvjson": "^3.0.0",
+        "request": "^2.79.0",
+        "request-promise": "^4.1.1",
+        "xml2js": "^0.4.17"
+    },
+    "version": "1.0.0"
+}

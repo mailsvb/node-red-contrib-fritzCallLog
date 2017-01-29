@@ -1,0 +1,55 @@
+<script type="text/x-red" data-template-name="fritzCallLog-node">
+    <div class="form-row">
+        <label for="node-input-address" style="width:40%;"><i class="fa fa-tag"></i> Fritz!Box address:</label>
+        <input type="text" id="node-input-address" placeholder="fritz.box" style="width:55%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-protocol" style="width:40%;"><i class="fa fa-tasks"></i> Protocol:</label>
+        <select type="text" id="node-input-protocol" style="width:55%;">
+        <option value="http">http</option>
+        <option value="https">https</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-limit" style="width:40%;"><i class="fa fa-tag"></i> Limit:</label>
+        <input type="text" id="node-input-limit" placeholder="100" style="width:55%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name" style="width:40%;"><i class="fa fa-tag"></i> Name:</label>
+        <input type="text" id="node-input-name" placeholder="Name..." style="width:55%;">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="fritzCallLog-node">
+    <p>Provides a node for sending XML responses to XSI capable devices to synchronize the call log with your Fritz!Box</p>
+    <p>The following settings are required
+    <ul>
+    <li>address: your Fritz!Box IP or DNS, optionally a port</li>
+    <li>protocol: http or https</li>
+    <li>limit: set the limit on returned call log records</li>
+    <ul>
+    </p>
+    <p>Fritz!Box username and password need to be configured on the device and sent via HTTP Basic authentication</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('fritzCallLog-node',{
+        category: 'function',
+        color:"rgb(136, 197, 64)",
+        defaults: {
+            address: {value:"", required:true},
+            protocol: {value:"https"},
+            limit: {value:""},
+            name: {value:""},
+        },
+        inputs:1,
+        outputs:0,
+        icon: "light.png",
+        label: function() {
+            return this.name||"Fritz!";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
