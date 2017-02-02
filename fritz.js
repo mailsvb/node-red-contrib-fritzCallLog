@@ -95,7 +95,6 @@ module.exports = function(RED) {
             else if (Directories.hasOwnProperty(requestType) === true) {
                 fritz.getPhonebook(Directories[requestType], node.options)
                 .then((phonebook) => {
-                    //console.log(util.inspect(phonebook, { showHidden: true, depth: null }));
                     node.log("Received phonebook entries from FRITZBox: " + phonebook.length);
                     let XML = {};
                     XML['Group'] = '<groupDirectory>';
