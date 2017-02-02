@@ -105,30 +105,26 @@ fritzFormat.xmlToJson = (xml) => {
 fritzFormat.phonebook = (phonebook) => {
     let formattedPhonebook = [];
     for (var i in phonebook) {
-        formattedPhonebook[i] = {
-            uniqueId: phonebook[i].uniqueid[0],
-            name: phonebook[i].person[0].realName[0],
-            numbers: [],
-            category: phonebook[i].category[0]
-        };
-        const numbers = phonebook[i].telephony[0].number;
-        for (var n in numbers) {
-            let number = numbers[n];
-            formattedPhonebook[i].numbers[n] = {
-                number: number._,
-                type: number.$.type,
-                priority: number.$.prio,
-                quickdial: number.$.quickdial
+        if (typeof phonebook[i] === 'object') {
+            formattedPhonebook[i] = {
+                uniqueId: phonebook[i].uniqueid[0],
+                name: phonebook[i].person[0].realName[0],
+                numbers: [],
+                category: phonebook[i].category[0]
             };
-        }
-        if (phonebook[i].services[0].email) {
-            formattedPhonebook[i].email = phonebook[i].services[0].email[0]._;
-        }
-        if (phonebook[i].mod_time) {
-            formattedPhonebook[i].lastModified = phonebook[i].mod_time[0];
-        }
-        if (phonebook[i].setup[0].ringTone) {
-            formattedPhonebook[i].ringtone = phonebook[i].setup[0].ringTone[0];
+            const numbers = phonebook[i].telephony[0].number;
+            for (var n in numbers) {
+                if (typeof numbers[n] === 'object') {
+                    formattedPhonebook[i].numbers[n] = {
+                        number: numbers[n]._,
+                        type: numbers[n].$.type,
+                        priority: numbers[n].$.prio
+                    };
+                }
+            }
+            if (phonebook[i].mod_time) {
+                formattedPhonebook[i].lastModified = phonebook[i].mod_time[0];
+            }
         }
     }
     return formattedPhonebook;

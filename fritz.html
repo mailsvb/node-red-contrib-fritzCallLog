@@ -1,26 +1,45 @@
-<script type="text/x-red" data-template-name="fritzCallLog-node">
+<script type="text/x-red" data-template-name="FRITZaccess-node">
     <div class="form-row">
-        <label for="node-input-address" style="width:40%;"><i class="fa fa-tag"></i> Fritz!Box address:</label>
-        <input type="text" id="node-input-address" placeholder="fritz.box" style="width:55%;">
+        <label for="node-input-address" style="width:50%;"><i class="fa fa-tag"></i> Fritz!Box address:</label>
+        <input type="text" id="node-input-address" placeholder="fritz.box" style="width:45%;">
     </div>
     <div class="form-row">
-        <label for="node-input-protocol" style="width:40%;"><i class="fa fa-tasks"></i> Protocol:</label>
-        <select type="text" id="node-input-protocol" style="width:55%;">
+        <label for="node-input-protocol" style="width:50%;"><i class="fa fa-tasks"></i> Protocol:</label>
+        <select type="text" id="node-input-protocol" style="width:45%;">
         <option value="http">http</option>
         <option value="https">https</option>
         </select>
     </div>
     <div class="form-row">
-        <label for="node-input-limit" style="width:40%;"><i class="fa fa-tag"></i> Limit:</label>
-        <input type="text" id="node-input-limit" placeholder="100" style="width:55%;">
+        <label for="node-input-limit" style="width:50%;"><i class="fa fa-tag"></i> Call log limit:</label>
+        <input type="text" id="node-input-limit" placeholder="100" style="width:45%;">
     </div>
     <div class="form-row">
-        <label for="node-input-name" style="width:40%;"><i class="fa fa-tag"></i> Name:</label>
-        <input type="text" id="node-input-name" placeholder="Name..." style="width:55%;">
+        <label style="width:50%;">&nbsp;Directory Name</label><label style="width:45%;">&nbsp;Fritz!Box Phonebook ID</label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-Group" style="width:50%;">&nbsp;Group</label>
+        <input type="text" id="node-input-Group" placeholder="0" style="width:45%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-GroupCommon" style="width:50%;">&nbsp;Group Common</label>
+        <input type="text" id="node-input-GroupCommon" placeholder="1" style="width:45%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-Enterprise" style="width:50%;">&nbsp;Enterprise</label>
+        <input type="text" id="node-input-Enterprise" placeholder="2" style="width:45%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-EnterpriseCommon" style="width:50%;">&nbsp;Enterprise Common</label>
+        <input type="text" id="node-input-EnterpriseCommon" placeholder="3" style="width:45%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name" style="width:50%;"><i class="fa fa-tag"></i> Name:</label>
+        <input type="text" id="node-input-name" placeholder="Name..." style="width:45%;">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="fritzCallLog-node">
+<script type="text/x-red" data-help-name="FRITZaccess-node">
     <p>Provides a node for sending XML responses to XSI capable devices to synchronize the call log with your Fritz!Box</p>
     <p>The following settings are required
     <ul>
@@ -33,20 +52,24 @@
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('fritzCallLog-node',{
+    RED.nodes.registerType('FRITZaccess-node',{
         category: 'function',
         color:"rgb(136, 197, 64)",
         defaults: {
             address: {value:"", required:true},
             protocol: {value:"https"},
             limit: {value:""},
+            Group: {value:"", required:false},
+            GroupCommon: {value:"", required:false},
+            Enterprise: {value:"", required:false},
+            EnterpriseCommon: {value:"", required:false},
             name: {value:""},
         },
         inputs:1,
         outputs:0,
         icon: "light.png",
         label: function() {
-            return this.name||"Fritz!";
+            return this.name||"Fritz!Box";
         },
         labelStyle: function() {
             return this.name?"node_label_italic":"";
