@@ -18,8 +18,7 @@ cd node-red-contrib-fritzXSI && npm -g install .
 ```
 
 ## Configure node-red
-Configure node-red to use https instead of default http. Check this tutorial: https://www.hardill.me.uk/wordpress/2015/05/11/securing-node-red/
-Start node-red
+Configure node-red to use https instead of default http and launch node-red. Check this tutorial: https://www.hardill.me.uk/wordpress/2015/05/11/securing-node-red/
 ```
 node-red
 ```
