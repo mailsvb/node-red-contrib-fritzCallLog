@@ -4,11 +4,11 @@
         "email": "mailsvb@gmail.com"
     },
     "description": "fritzbox call log to XSI",
-    "name": "node-red-contrib-fritzCallLog",
-    "keywords": [ "node-red", "Fritz!", "FritzBox", "XSI", "DeskPhone CP", "XSI" ],
+    "name": "node-red-contrib-fritzXSI",
+    "keywords": [ "node-red", "Fritz!", "FritzBox", "XSI", "DeskPhone CP" ],
     "node-red": {
         "nodes": {
-            "FritzCallLog": "fritz.js"
+            "FRITZaccess": "fritz.js"
         }
     },
     "license": "MIT",

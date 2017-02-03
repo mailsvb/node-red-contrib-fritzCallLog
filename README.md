@@ -1,9 +1,9 @@
-# node-red-contrib-fritzCallLog
+# node-red-contrib-fritzXSI
 This project is based on the work from https://github.com/lesander/fritzbox.js
-It has been simplified to only support the desired functionality of this project
+It has been simplified to only support the desired functionality of this project and made it available for use with node-red
 
 ## Summary
-This node-red node gives access to the Fritz!Box internal call log to all devices supporting the XSI interface.
+This node-red node gives access to the Fritz!Box internal call log and directory to devices supporting the XSI interface.
 
 ## Getting Started
 Get the latest version (`^7.0.0`) of nodejs and node-red
@@ -13,8 +13,8 @@ npm -g install node-red
 
 Install this package
 ```
-git clone https://github.com/mailsvb/node-red-contrib-fritzCallLog.git
-cd node-red-contrib-fritzCallLog && npm -g install .
+git clone https://github.com/mailsvb/node-red-contrib-fritzXSI.git
+cd node-red-contrib-fritzXSI && npm -g install .
 ```
 
 * Activate login via username and password on your Fritzbox
